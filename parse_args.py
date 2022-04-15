@@ -4,6 +4,8 @@ import torch
 import models
 import utils
 
+PATH = '/home/silvia'
+
 def collect_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--experiment', 
@@ -142,11 +144,11 @@ def create_exerpiment_setting(opt):
     elif opt['experiment'] == 'cifar-s_baseline':
         opt['output_dim'] = 10
         data_setting = {
-            'train_data_path': './data/cifar-s/p95.0/train_imgs',
-            'train_label_path': './data/cifar_train_labels',
-            'test_color_path': './data/cifar_color_test_imgs',
-            'test_gray_path': './data/cifar_gray_test_imgs',
-            'test_label_path': './data/cifar_test_labels',
+            'train_data_path': PATH+'/data/cifar-s/p95.0/train_imgs',
+            'train_label_path': PATH+'/data/cifar_train_labels',
+            'test_color_path': PATH+'/data/cifar_color_test_imgs',
+            'test_gray_path': PATH+'/data/cifar_gray_test_imgs',
+            'test_label_path': PATH+'/data/cifar_test_labels',
             'augment': True
         }
         opt['data_setting'] = data_setting
@@ -170,11 +172,11 @@ def create_exerpiment_setting(opt):
         opt['prior_shift_weight'] = [1/5 if i%2==0 else 1/95 for i in range(10)] \
                                     + [1/95 if i%2==0 else 1/5 for i in range(10)]
         data_setting = {
-            'train_data_path': './data/cifar-s/p95.0/train_imgs',
-            'train_label_path': './data/cifar-s/p95.0/train_2n_labels',
-            'test_color_path': './data/cifar_color_test_imgs',
-            'test_gray_path': './data/cifar_gray_test_imgs',
-            'test_label_path': './data/cifar_test_labels',
+            'train_data_path': PATH+'/data/cifar-s/p95.0/train_imgs',
+            'train_label_path': PATH+'/data/cifar-s/p95.0/train_2n_labels',
+            'test_color_path': PATH+'/data/cifar_color_test_imgs',
+            'test_gray_path': PATH+'/data/cifar_gray_test_imgs',
+            'test_label_path': PATH+'/data/cifar_test_labels',
             'augment': True
         }
         opt['data_setting'] = data_setting
@@ -201,12 +203,12 @@ def create_exerpiment_setting(opt):
         opt['alpha'] = 1.
         
         data_setting = {
-            'train_data_path': './data/cifar-s/p95.0/train_imgs',
-            'train_label_path': './data/cifar_train_labels',
-            'test_color_path': './data/cifar_color_test_imgs',
-            'test_gray_path': './data/cifar_gray_test_imgs',
-            'test_label_path': './data/cifar_test_labels',
-            'domain_label_path': './data/cifar-s/p95.0/train_domain_labels',
+            'train_data_path': PATH+'/data/cifar-s/p95.0/train_imgs',
+            'train_label_path': PATH+'/data/cifar_train_labels',
+            'test_color_path': PATH+'/data/cifar_color_test_imgs',
+            'test_gray_path': PATH+'/data/cifar_gray_test_imgs',
+            'test_label_path': PATH+'/data/cifar_test_labels',
+            'domain_label_path': PATH+'/data/cifar-s/p95.0/train_domain_labels',
             'augment': True
         }
         opt['data_setting'] = data_setting
